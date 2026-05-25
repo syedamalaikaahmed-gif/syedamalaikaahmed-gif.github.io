@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Syeda Malaika Ahmed | AI Automation & Web Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --white: #ffffff;
+    --off-white: #f8f7f4;
+    --light: #f0ede8;
+    --accent: #1a472a;
+    --accent-light: #2d6a4f;
+    --accent-pale: #e8f0eb;
+    --text-dark: #111111;
+    --text-mid: #444444;
+    --text-muted: #888888;
+    --border: #e2ddd8;
+    --gold: #c9a84c;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--white);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 1.25rem 4rem;
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.3rem;
+    color: var(--accent);
+    letter-spacing: -0.02em;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--text-mid);
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+  .nav-cta {
+    background: var(--accent);
+    color: white !important;
+    padding: 0.5rem 1.25rem;
+    border-radius: 2rem;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--accent-light) !important; color: white !important; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 8rem 4rem 4rem;
+    gap: 4rem;
+    background: var(--white);
+    position: relative;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 45%; height: 100%;
+    background: var(--off-white);
+    z-index: 0;
+  }
+  .hero-text { position: relative; z-index: 1; }
+  .hero-tag {
+    display: inline-block;
+    background: var(--accent-pale);
+    color: var(--accent);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.4rem 1rem;
+    border-radius: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .hero-desc {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--text-mid);
+    max-width: 480px;
+    margin-bottom: 2.5rem;
+  }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--accent);
+    color: white;
+    padding: 0.85rem 2rem;
+    border-radius: 2rem;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-flex; align-items: center; gap: 0.5rem;
+  }
+  .btn-primary:hover { background: var(--accent-light); transform: translateY(-1px); }
+  .btn-outline {
+    border: 1.5px solid var(--border);
+    color: var(--text-dark);
+    padding: 0.85rem 2rem;
+    border-radius: 2rem;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: border-color 0.2s, transform 0.15s;
+  }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+
+  .hero-visual { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 1rem; }
+  .hero-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.5rem;
+    animation: floatUp 0.6s ease both;
+  }
+  .hero-card:nth-child(2) { animation-delay: 0.15s; margin-left: 2rem; }
+  .hero-card:nth-child(3) { animation-delay: 0.3s; }
+  @keyframes floatUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .card-icon {
+    width: 40px; height: 40px;
+    background: var(--accent-pale);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+  }
+  .hero-card h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.25rem; }
+  .hero-card p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; }
+  .stat-row { display: flex; gap: 1rem; margin-top: 0.75rem; }
+  .stat { text-align: center; }
+  .stat-num { font-size: 1.4rem; font-weight: 600; color: var(--accent); }
+  .stat-label { font-size: 0.72rem; color: var(--text-muted); }
+
+  /* SECTION COMMON */
+  section { padding: 6rem 4rem; }
+  .section-tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+  }
+  .section-sub {
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+    max-width: 560px;
+    margin-bottom: 3rem;
+  }
+
+  /* SERVICES */
+  #services { background: var(--off-white); }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  .service-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+  .service-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+  .service-card:hover::after { transform: scaleX(1); }
+  .service-icon {
+    width: 52px; height: 52px;
+    background: var(--accent-pale);
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+  .service-card h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.75rem; }
+  .service-card p { font-size: 0.88rem; color: var(--text-mid); line-height: 1.65; margin-bottom: 1.25rem; }
+  .service-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .tag {
+    background: var(--accent-pale);
+    color: var(--accent);
+    font-size: 0.72rem;
+    font-weight: 500;
+    padding: 0.3rem 0.75rem;
+    border-radius: 2rem;
+  }
+
+  /* PROJECTS */
+  #projects { background: var(--white); }
+
+  .featured-project {
+    background: var(--off-white);
+    border: 1.5px solid var(--border);
+    border-radius: 20px;
+    padding: 2.5rem;
+    margin-bottom: 3rem;
+    position: relative;
+  }
+  .featured-badge {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 0.35rem 1rem;
+    border-radius: 2rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.04em;
+  }
+  .featured-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+  .featured-logo {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+  .featured-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.6rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+  .featured-desc {
+    font-size: 0.9rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+  .featured-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem;
+  }
+  .fstat { text-align: center; }
+  .fstat-num { font-size: 1.3rem; font-weight: 600; color: var(--accent); }
+  .fstat-label { font-size: 0.68rem; color: var(--text-muted); margin-top: 2px; }
+  .featured-modules {
+    display: flex; flex-wrap: wrap; gap: 0.5rem;
+    margin-bottom: 1.25rem;
+  }
+  .module-chip {
+    background: var(--white);
+    border: 1px solid var(--border);
+    color: var(--text-dark);
+    font-size: 0.78rem;
+    font-weight: 500;
+    padding: 0.4rem 0.9rem;
+    border-radius: 2rem;
+  }
+  .featured-tech { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .featured-screens { display: flex; flex-direction: column; gap: 1rem; }
+  .screen-item { display: flex; flex-direction: column; gap: 0.4rem; }
+  .screen-label { font-size: 0.72rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; }
+  .screen-preview {
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid var(--border);
+    min-height: 80px;
+  }
+  .screen-main .screen-preview { min-height: 110px; }
+  .red-theme { background: #1a0a0a; }
+  .light-theme { background: var(--white); }
+  .mock-nav {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 12px;
+  }
+  .mock-btn {
+    background: rgba(255,255,255,0.15);
+    color: white;
+    font-size: 0.55rem;
+    padding: 3px 8px;
+    border-radius: 2rem;
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+  .mock-hero { padding: 4px 0; }
+  .mock-stat-card {
+    background: var(--off-white);
+    border-radius: 6px;
+    padding: 6px 8px;
+    text-align: center;
+  }
+  .ss-img {
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    display: block;
+    object-fit: cover;
+    transition: transform 0.2s;
+  }
+  .ss-img:hover { transform: scale(1.02); }
+  .ss-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  @media (max-width: 768px) {
+    .featured-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .featured-stats { grid-template-columns: repeat(2, 1fr); }
+    .featured-screens { display: none; }
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+  }
+  .project-card {
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.2s;
+  }
+  .project-card:hover { transform: translateY(-4px); }
+  .project-thumb {
+    height: 180px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .project-thumb.green { background: var(--accent-pale); }
+  .project-thumb.gold { background: #fdf6e3; }
+  .project-thumb.blue { background: #e8f0fb; }
+  .project-info { padding: 1.5rem; }
+  .project-info h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; }
+  .project-info p { font-size: 0.85rem; color: var(--text-mid); line-height: 1.6; margin-bottom: 1rem; }
+  .project-tech { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .tech-chip {
+    background: var(--light);
+    color: var(--text-mid);
+    font-size: 0.7rem;
+    font-weight: 500;
+    padding: 0.25rem 0.65rem;
+    border-radius: 2rem;
+  }
+
+  /* ABOUT */
+  #about {
+    background: var(--accent);
+    color: white;
+  }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  #about .section-tag { color: rgba(255,255,255,0.6); }
+  #about .section-title { color: white; }
+  #about .section-sub { color: rgba(255,255,255,0.75); max-width: 100%; margin-bottom: 2rem; }
+  .skills-list { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+  .skill-badge {
+    border: 1px solid rgba(255,255,255,0.25);
+    color: white;
+    font-size: 0.78rem;
+    font-weight: 500;
+    padding: 0.4rem 1rem;
+    border-radius: 2rem;
+    background: rgba(255,255,255,0.1);
+  }
+  .about-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  .about-stat {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 16px;
+    padding: 1.5rem;
+  }
+  .about-stat .num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.5rem;
+    color: white;
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+  .about-stat .label {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.65);
+  }
+
+  /* CONTACT */
+  #contact { background: var(--off-white); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+  .contact-info { display: flex; flex-direction: column; gap: 1.25rem; }
+  .contact-item {
+    display: flex; align-items: center; gap: 1rem;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    text-decoration: none;
+    color: var(--text-dark);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: border-color 0.2s, transform 0.15s;
+  }
+  .contact-item:hover { border-color: var(--accent); transform: translateX(4px); }
+  .contact-item-icon {
+    width: 36px; height: 36px;
+    background: var(--accent-pale);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+  .form-group label { font-size: 0.82rem; font-weight: 500; color: var(--text-mid); }
+  .form-group input, .form-group textarea {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    transition: border-color 0.2s;
+    outline: none;
+    resize: none;
+  }
+  .form-group input:focus, .form-group textarea:focus { border-color: var(--accent); }
+  .form-group textarea { min-height: 120px; }
+  .submit-btn {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 0.9rem 2rem;
+    border-radius: 2rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    align-self: flex-start;
+  }
+  .submit-btn:hover { background: var(--accent-light); transform: translateY(-1px); }
+
+  /* FOOTER */
+  footer {
+    background: var(--text-dark);
+    color: rgba(255,255,255,0.5);
+    padding: 2rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.82rem;
+  }
+  .footer-logo {
+    font-family: 'DM Serif Display', serif;
+    color: white;
+    font-size: 1.1rem;
+  }
+
+  /* ANIMATIONS */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  /* HOSPITAL CAROUSEL */
+  .hosp-card { overflow: visible; }
+  .hosp-carousel {
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px 16px 0 0;
+    background: #0a0a0a;
+    height: 220px;
+  }
+  .hosp-slides { width: 100%; height: 100%; position: relative; }
+  .hosp-slide {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  .hosp-slide.active { opacity: 1; }
+  .hosp-prev, .hosp-next {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    background: rgba(0,0,0,0.55);
+    color: white; border: none;
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    font-size: 0.9rem;
+    cursor: pointer;
+    z-index: 5;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s;
+  }
+  .hosp-prev:hover, .hosp-next:hover { background: var(--accent); }
+  .hosp-prev { left: 8px; }
+  .hosp-next { right: 8px; }
+  .hosp-dots {
+    position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%);
+    display: flex; gap: 5px; z-index: 5;
+  }
+  .hdot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.4);
+    transition: background 0.2s;
+    cursor: pointer;
+  }
+  .hdot.active { background: white; }
+
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    section { padding: 4rem 1.5rem; }
+    .hero { grid-template-columns: 1fr; padding: 7rem 1.5rem 3rem; }
+    .hero::before { display: none; }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .form-row { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Malaika Ahmed</div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact" class="nav-cta">Hire Me</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <span class="hero-tag">Available for projects</span>
+    <h1>AI Automation &amp; <em>Web Developer</em></h1>
+    <p class="hero-desc">I help businesses save time and grow revenue through smart AI automation workflows and full-stack web development. Based in Karachi, working worldwide.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">Let's Work Together →</a>
+      <a href="#projects" class="btn-outline">View Projects</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-card">
+      <div class="card-icon">🤖</div>
+      <h3>Hospital Appointment System</h3>
+      <p>Automated WhatsApp booking for a hospital — eliminated manual scheduling entirely</p>
+      <div class="stat-row">
+        <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Automated</div></div>
+        <div class="stat"><div class="stat-num">n8n</div><div class="stat-label">Workflow</div></div>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="card-icon">🌐</div>
+      <h3>Travel Booking Platform</h3>
+      <p>Full-stack Laravel app with booking engine, agent panel &amp; admin dashboard</p>
+    </div>
+    <div class="hero-card">
+      <div class="card-icon">📊</div>
+      <h3>Automated Sales Reports</h3>
+      <p>n8n + Google Sheets pipeline — daily structured reports, zero manual work</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="fade-in">
+    <span class="section-tag">What I offer</span>
+    <h2 class="section-title">Services That Grow Your Business</h2>
+    <p class="section-sub">From intelligent automation to polished web applications — I deliver solutions that save time and generate results.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card fade-in">
+      <div class="service-icon">⚡</div>
+      <h3>AI Automation Workflows</h3>
+      <p>Eliminate repetitive tasks with intelligent n8n workflows connecting your apps, APIs, and data sources automatically.</p>
+      <div class="service-tags">
+        <span class="tag">n8n</span>
+        <span class="tag">API Integration</span>
+        <span class="tag">WhatsApp Bots</span>
+        <span class="tag">Google Sheets</span>
+      </div>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-icon">🤖</div>
+      <h3>AI Chatbot Development</h3>
+      <p>Custom chatbots and AI voice agents that handle customer queries, bookings, and support around the clock.</p>
+      <div class="service-tags">
+        <span class="tag">ChatBot</span>
+        <span class="tag">AI Voice Agent</span>
+        <span class="tag">WhatsApp</span>
+      </div>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-icon">🌐</div>
+      <h3>Full-Stack Web Development</h3>
+      <p>Complete web applications built with Laravel and PHP backend, responsive HTML/CSS/Bootstrap frontend.</p>
+      <div class="service-tags">
+        <span class="tag">Laravel</span>
+        <span class="tag">PHP</span>
+        <span class="tag">MySQL</span>
+        <span class="tag">Bootstrap</span>
+      </div>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-icon">🗄️</div>
+      <h3>Database & Backend Systems</h3>
+      <p>Scalable database design and backend APIs that power your applications reliably and efficiently.</p>
+      <div class="service-tags">
+        <span class="tag">MySQL</span>
+        <span class="tag">PostgreSQL</span>
+        <span class="tag">REST APIs</span>
+      </div>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-icon">☁️</div>
+      <h3>SaaS Development</h3>
+      <p>Multi-tenant SaaS applications with subscription management, user roles, and custom dashboards.</p>
+      <div class="service-tags">
+        <span class="tag">SaaS</span>
+        <span class="tag">Multi-tenant</span>
+        <span class="tag">Dashboards</span>
+      </div>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-icon">🔗</div>
+      <h3>Business Process Automation</h3>
+      <p>Connect your tools — CRM, email, spreadsheets — into one automated flow that runs without you.</p>
+      <div class="service-tags">
+        <span class="tag">Zapier/n8n</span>
+        <span class="tag">Email Automation</span>
+        <span class="tag">Webhooks</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="fade-in">
+    <span class="section-tag">Portfolio</span>
+    <h2 class="section-title">Recent Projects</h2>
+    <p class="section-sub">Real solutions built for real businesses — each project solving a specific problem with measurable results.</p>
+  </div>
+
+  <!-- FEATURED PROJECT -->
+  <div class="featured-project fade-in">
+    <div class="featured-badge">⭐ Featured Project</div>
+    <div class="featured-grid">
+      <div class="featured-info">
+        <div class="featured-logo">✈️ Air Arabian</div>
+        <h3 class="featured-title">Complete Travel Agency Management Platform</h3>
+        <p class="featured-desc">A full-scale, production-ready travel management system serving real agents and businesses across Pakistan. Built from scratch — public website, agent portal, admin dashboard, booking engine, and notification system all in one platform.</p>
+        <div class="featured-stats">
+          <div class="fstat"><div class="fstat-num">6</div><div class="fstat-label">Complete Systems</div></div>
+          <div class="fstat"><div class="fstat-num">4+</div><div class="fstat-label">Active Vendors</div></div>
+          <div class="fstat"><div class="fstat-num">24+</div><div class="fstat-label">Bookings Managed</div></div>
+          <div class="fstat"><div class="fstat-num">Live</div><div class="fstat-label">Production App</div></div>
+        </div>
+        <div class="featured-modules">
+          <div class="module-chip">🌐 Public Website</div>
+          <div class="module-chip">🔐 Agent Login</div>
+          <div class="module-chip">📊 Agent Dashboard</div>
+          <div class="module-chip">👑 Admin Panel</div>
+          <div class="module-chip">🎫 Booking Engine</div>
+          <div class="module-chip">🔔 Notifications</div>
+        </div>
+        <div class="featured-tech">
+          <span class="tech-chip">Laravel</span>
+          <span class="tech-chip">PHP</span>
+          <span class="tech-chip">MySQL</span>
+          <span class="tech-chip">Bootstrap</span>
+          <span class="tech-chip">JavaScript</span>
+          <span class="tech-chip">REST APIs</span>
+        </div>
+        <a href="https://www.airarabian.net/" target="_blank" class="btn-primary" style="margin-top:1.5rem;display:inline-flex;">View Live Site →</a>
+      </div>
+      <div class="featured-screens">
+        <div class="screen-item screen-main">
+          <div class="screen-label">Public Website</div>
+          <img src="ss6.png" alt="Air Arabian public website" class="ss-img">
+        </div>
+        <div class="ss-row">
+          <div class="screen-item">
+            <div class="screen-label">Agent Login</div>
+            <img src="ss3.png" alt="Agent Login" class="ss-img">
+          </div>
+          <div class="screen-item">
+            <div class="screen-label">New Booking Panel</div>
+            <img src="ss1.png" alt="New Booking Panel" class="ss-img">
+          </div>
+        </div>
+        <div class="ss-row">
+          <div class="screen-item">
+            <div class="screen-label">Agent Dashboard</div>
+            <img src="ss2.png" alt="Agent Dashboard" class="ss-img">
+          </div>
+          <div class="screen-item">
+            <div class="screen-label">Admin Dashboard</div>
+            <img src="ss4.png" alt="Admin Dashboard" class="ss-img">
+          </div>
+        </div>
+        <div class="screen-item">
+          <div class="screen-label">Notification Management</div>
+          <img src="ss5.png" alt="Notification Management" class="ss-img">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="projects-grid">
+    <div class="project-card fade-in hosp-card">
+      <div class="hosp-carousel">
+        <div class="hosp-slides">
+          <img src="hosp3.jpg" class="hosp-slide active" alt="slide 1">
+          <img src="hosp1.jpg" class="hosp-slide" alt="slide 2">
+          <img src="hosp2.jpg" class="hosp-slide" alt="slide 3">
+          <img src="hosp4.jpg" class="hosp-slide" alt="slide 4">
+          <img src="hosp5.jpg" class="hosp-slide" alt="slide 5">
+          <img src="hosp6.jpg" class="hosp-slide" alt="slide 6">
+        </div>
+        <button class="hosp-prev" onclick="moveSlide(this,-1)">&#8592;</button>
+        <button class="hosp-next" onclick="moveSlide(this,1)">&#8594;</button>
+        <div class="hosp-dots">
+          <span class="hdot active"></span><span class="hdot"></span><span class="hdot"></span>
+          <span class="hdot"></span><span class="hdot"></span><span class="hdot"></span>
+        </div>
+      </div>
+      <div class="project-info">
+        <h3>Hospital Appointment Automation</h3>
+        <p>5 complete automations — WhatsApp booking bot, smart admin dashboard, dynamic system, payment tracking &amp; real-time analytics. 60% less staff workload, zero missed appointments.</p>
+        <div class="project-tech">
+          <span class="tech-chip">n8n</span>
+          <span class="tech-chip">WhatsApp API</span>
+          <span class="tech-chip">Supabase</span>
+          <span class="tech-chip">AI Automation</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-card fade-in">
+      <div class="project-thumb blue">📊</div>
+      <div class="project-info">
+        <h3>Automated Daily Sales Reports</h3>
+        <p>n8n workflow that collects sales data from multiple sources, processes it, and delivers structured daily reports automatically to Google Sheets.</p>
+        <div class="project-tech">
+          <span class="tech-chip">n8n</span>
+          <span class="tech-chip">Google Sheets</span>
+          <span class="tech-chip">API Integration</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="fade-in">
+      <span class="section-tag">About Me</span>
+      <h2 class="section-title">Building smart solutions from Karachi</h2>
+      <p class="section-sub">I'm a self-employed web developer and AI automation specialist passionate about helping businesses work smarter. I combine modern web development with intelligent automation to create systems that save time and scale effortlessly.</p>
+      <p class="section-sub" style="margin-top: -1.5rem;">Open to freelance projects, contract work, and remote collaborations worldwide.</p>
+      <div class="skills-list">
+        <span class="skill-badge">n8n</span>
+        <span class="skill-badge">Laravel</span>
+        <span class="skill-badge">PHP</span>
+        <span class="skill-badge">HTML/CSS</span>
+        <span class="skill-badge">MySQL</span>
+        <span class="skill-badge">PostgreSQL</span>
+        <span class="skill-badge">Bootstrap</span>
+        <span class="skill-badge">AI Agents</span>
+        <span class="skill-badge">ChatBot Dev</span>
+        <span class="skill-badge">REST APIs</span>
+        <span class="skill-badge">Google Sheets</span>
+        <span class="skill-badge">WhatsApp API</span>
+      </div>
+    </div>
+    <div class="about-stats fade-in">
+      <div class="about-stat">
+        <div class="num">5+</div>
+        <div class="label">Happy clients served</div>
+      </div>
+      <div class="about-stat">
+        <div class="num">10+</div>
+        <div class="label">Projects delivered</div>
+      </div>
+      <div class="about-stat">
+        <div class="num">1yr+</div>
+        <div class="label">Professional experience</div>
+      </div>
+      <div class="about-stat">
+        <div class="num">100%</div>
+        <div class="label">Client satisfaction</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="fade-in">
+    <span class="section-tag">Get in touch</span>
+    <h2 class="section-title">Let's Build Something Together</h2>
+    <p class="section-sub">Have a project in mind? I'd love to hear about it. Reach out and let's discuss how I can help.</p>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info fade-in">
+      <a href="mailto:syedamalaikaahmed@gmail.com" class="contact-item">
+        <div class="contact-item-icon">📧</div>
+        <div>
+          <div style="font-size:0.75rem;color:var(--text-muted);margin-bottom:2px;">Email</div>
+          syedamalaikaahmed@gmail.com
+        </div>
+      </a>
+      <a href="https://www.linkedin.com/in/syeda-malaika-ahmed" target="_blank" class="contact-item">
+        <div class="contact-item-icon">💼</div>
+        <div>
+          <div style="font-size:0.75rem;color:var(--text-muted);margin-bottom:2px;">LinkedIn</div>
+          Syeda Malaika Ahmed
+        </div>
+      </a>
+      <a href="https://wa.me/923142588673" target="_blank" class="contact-item">
+        <div class="contact-item-icon">🟢</div>
+        <div>
+          <div style="font-size:0.75rem;color:var(--text-muted);margin-bottom:2px;">WhatsApp</div>
+          +92 314 2588673
+        </div>
+      </a>
+      <a href="#" class="contact-item">
+        <div class="contact-item-icon">🎯</div>
+        <div>
+          <div style="font-size:0.75rem;color:var(--text-muted);margin-bottom:2px;">Fiverr</div>
+          Hire me on Fiverr
+        </div>
+      </a>
+    </div>
+    <div class="fade-in">
+      <div class="contact-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Your Name</label>
+            <input type="text" placeholder="Ahmed Khan">
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" placeholder="ahmed@company.com">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Subject</label>
+          <input type="text" placeholder="I need a chatbot for my business">
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea placeholder="Tell me about your project..."></textarea>
+        </div>
+        <button class="submit-btn">Send Message →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Malaika Ahmed</div>
+  <div>© 2026 Syeda Malaika Ahmed · AI Automation & Web Developer · Karachi, Pakistan</div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 80);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+function moveSlide(btn, dir) {
+  const carousel = btn.closest('.hosp-carousel');
+  const slides = carousel.querySelectorAll('.hosp-slide');
+  const dots = carousel.querySelectorAll('.hdot');
+  let current = [...slides].findIndex(s => s.classList.contains('active'));
+  slides[current].classList.remove('active');
+  dots[current].classList.remove('active');
+  current = (current + dir + slides.length) % slides.length;
+  slides[current].classList.add('active');
+  dots[current].classList.add('active');
+}
+
+// Auto-play carousel
+setInterval(() => {
+  document.querySelectorAll('.hosp-next').forEach(btn => btn.click());
+}, 3000);
+</script>
+</body>
+</html>
